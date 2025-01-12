@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="veritabani.yapilacaklarPage"
+             Title="yapilacaklarPage">
+
+    <VerticalStackLayout Spacing="25" Padding="30">
+
+        <ImageButton Source="ekle.png"
+              HorizontalOptions="EndAndExpand"
+              VerticalOptions="Start"
+              WidthRequest="50"
+              HeightRequest="50"
+              Clicked="OnAddTaskClicked"/>
+
+        <Label Text="To-Do List"
+               FontSize="32"
+               HorizontalOptions="Center"/>
+
+        <ListView x:Name="TasksListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Horizontal">
+
+                            <Entry Text="{Binding TaskName}"
+                                   FontSize="18"
+                                   VerticalOptions="Center"
+                                   IsReadOnly="True">
+                                <Entry.Triggers>
+                                    <DataTrigger TargetType="Entry" Binding="{Binding IsCompleted}" Value="True">
+                                        <!--<Setter Property="TextDecorations" Value="Strikethrough"/>-->
+                                    </DataTrigger>
+                                </Entry.Triggers>
+                            </Entry>
+
+                            <CheckBox IsChecked="{Binding IsCompleted}" 
+                                      VerticalOptions="Center" 
+                                      HorizontalOptions="End" />
+
+                            <ImageButton Source="edit.png"
+                                         WidthRequest="24"
+                                         HeightRequest="24"
+                                         HorizontalOptions="End"
+                                         VerticalOptions="Center"
+                                         Clicked="OnEditTaskClicked"/>
+
+                            <ImageButton Source="delete.png"
+                                         WidthRequest="24" 
+                                         HeightRequest="24"
+                                         HorizontalOptions="Start"
+                                         Clicked="OnDeleteTaskClicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+
+</ContentPage>

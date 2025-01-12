@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="veritabani.MainPage">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry Placeholder="Ad" x:Name="AdEntry" />
+        <Entry Placeholder="Soyad" x:Name="SoyadEntry" />
+        <Entry Placeholder="Telefon" x:Name="TelefonEntry" Keyboard="Telephone" />
+        <Entry Placeholder="Eposta" x:Name="EpostaEntry" Keyboard="Email" />
+        <Entry Placeholder="Şifre" x:Name="SifreEntry" IsPassword="True" />
+        <Button Text="Kayıt Ol" Clicked="OnKayitOlButtonClicked" />
+    </VerticalStackLayout>
+</ContentPage>
+
+
+
